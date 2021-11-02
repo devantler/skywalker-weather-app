@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A101E6C2731974800A25C9B /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A101E6B2731974800A25C9B /* LocationViewModel.swift */; };
+		0A101E6F2731978600A25C9B /* WeatherApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A101E6E2731978600A25C9B /* WeatherApi.swift */; };
+		0A101E72273197A000A25C9B /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A101E71273197A000A25C9B /* Inject.swift */; };
+		0A101E752731A0CB00A25C9B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0A101E742731A0CB00A25C9B /* Swinject */; };
+		0A101E772731A6B900A25C9B /* ServiceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A101E762731A6B900A25C9B /* ServiceRegistry.swift */; };
 		0A2E292B2728580C00D3EC34 /* SkywalkerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2E292A2728580C00D3EC34 /* SkywalkerApp.swift */; };
-		0A2E292D2728580C00D3EC34 /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2E292C2728580C00D3EC34 /* LayoutView.swift */; };
+		0A2E292D2728580C00D3EC34 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2E292C2728580C00D3EC34 /* ContentView.swift */; };
 		0A2E292F2728580D00D3EC34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A2E292E2728580D00D3EC34 /* Assets.xcassets */; };
 		0A2E29322728580D00D3EC34 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A2E29312728580D00D3EC34 /* Preview Assets.xcassets */; };
 		0A2E293C27285A0A00D3EC34 /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2E293B27285A0A00D3EC34 /* TripView.swift */; };
@@ -23,9 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A101E6B2731974800A25C9B /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		0A101E6E2731978600A25C9B /* WeatherApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApi.swift; sourceTree = "<group>"; };
+		0A101E71273197A000A25C9B /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
+		0A101E762731A6B900A25C9B /* ServiceRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegistry.swift; sourceTree = "<group>"; };
 		0A2E29272728580C00D3EC34 /* Skywalker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skywalker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A2E292A2728580C00D3EC34 /* SkywalkerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkywalkerApp.swift; sourceTree = "<group>"; };
-		0A2E292C2728580C00D3EC34 /* LayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
+		0A2E292C2728580C00D3EC34 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0A2E292E2728580D00D3EC34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A2E29312728580D00D3EC34 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A2E293B27285A0A00D3EC34 /* TripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripView.swift; sourceTree = "<group>"; };
@@ -44,12 +53,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A101E752731A0CB00A25C9B /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A101E6D2731977800A25C9B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0A101E6E2731978600A25C9B /* WeatherApi.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0A101E702731979000A25C9B /* ServiceRegistry */ = {
+			isa = PBXGroup;
+			children = (
+				0A101E71273197A000A25C9B /* Inject.swift */,
+				0A101E762731A6B900A25C9B /* ServiceRegistry.swift */,
+			);
+			path = ServiceRegistry;
+			sourceTree = "<group>";
+		};
 		0A2E291E2728580C00D3EC34 = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +96,8 @@
 		0A2E29292728580C00D3EC34 /* Skywalker */ = {
 			isa = PBXGroup;
 			children = (
+				0A101E702731979000A25C9B /* ServiceRegistry */,
+				0A101E6D2731977800A25C9B /* Services */,
 				0A2E296E2728972B00D3EC34 /* Models */,
 				0A2E296727288D1200D3EC34 /* ViewModels */,
 				0A2E29382728587D00D3EC34 /* Views */,
@@ -93,7 +122,7 @@
 				0A2E293B27285A0A00D3EC34 /* TripView.swift */,
 				0A2E293D27285A3E00D3EC34 /* WeatherView.swift */,
 				0A2E293F27285BA800D3EC34 /* LocationView.swift */,
-				0A2E292C2728580C00D3EC34 /* LayoutView.swift */,
+				0A2E292C2728580C00D3EC34 /* ContentView.swift */,
 				0A2E2945272863FD00D3EC34 /* WeatherItemView.swift */,
 				0A2E296527288CD400D3EC34 /* CircleView.swift */,
 			);
@@ -104,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				0A2E296C2728972100D3EC34 /* TripViewModel.swift */,
+				0A101E6B2731974800A25C9B /* LocationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -134,6 +164,9 @@
 			dependencies = (
 			);
 			name = Skywalker;
+			packageProductDependencies = (
+				0A101E742731A0CB00A25C9B /* Swinject */,
+			);
 			productName = Skywalker;
 			productReference = 0A2E29272728580C00D3EC34 /* Skywalker.app */;
 			productType = "com.apple.product-type.application";
@@ -162,6 +195,9 @@
 				Base,
 			);
 			mainGroup = 0A2E291E2728580C00D3EC34;
+			packageReferences = (
+				0A101E732731A0CB00A25C9B /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = 0A2E29282728580C00D3EC34 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -188,14 +224,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A101E772731A6B900A25C9B /* ServiceRegistry.swift in Sources */,
+				0A101E72273197A000A25C9B /* Inject.swift in Sources */,
 				0A2E293E27285A3E00D3EC34 /* WeatherView.swift in Sources */,
 				0A2E296D2728972100D3EC34 /* TripViewModel.swift in Sources */,
+				0A101E6F2731978600A25C9B /* WeatherApi.swift in Sources */,
 				0A2E29722728979500D3EC34 /* Location.swift in Sources */,
 				0A2E2974272897CE00D3EC34 /* Weather.swift in Sources */,
 				0A2E294027285BA800D3EC34 /* LocationView.swift in Sources */,
 				0A2E29702728973A00D3EC34 /* Trip.swift in Sources */,
 				0A2E2946272863FD00D3EC34 /* WeatherItemView.swift in Sources */,
-				0A2E292D2728580C00D3EC34 /* LayoutView.swift in Sources */,
+				0A101E6C2731974800A25C9B /* LocationViewModel.swift in Sources */,
+				0A2E292D2728580C00D3EC34 /* ContentView.swift in Sources */,
 				0A2E292B2728580C00D3EC34 /* SkywalkerApp.swift in Sources */,
 				0A2E296627288CD400D3EC34 /* CircleView.swift in Sources */,
 				0A2E293C27285A0A00D3EC34 /* TripView.swift in Sources */,
@@ -401,6 +441,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0A101E732731A0CB00A25C9B /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0A101E742731A0CB00A25C9B /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A101E732731A0CB00A25C9B /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0A2E291F2728580C00D3EC34 /* Project object */;
 }

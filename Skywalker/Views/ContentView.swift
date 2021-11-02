@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct LayoutView: View {
+struct ContentView: View {
     var body: some View {
         TabView{
             //We need to make this view show the default add location stuff for empty locations
@@ -22,8 +22,8 @@ struct LayoutView: View {
     
 }
 
-struct LayoutView_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        LayoutView()
+        ContentView()
     }
 }
