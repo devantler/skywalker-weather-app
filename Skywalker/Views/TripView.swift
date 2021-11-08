@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct TripView: View {
+    var isEmpty: Bool = false
+    @ObservedObject var tripViewModel: TripViewModel = TripViewModel()
     var body: some View {
-        Text("TripView")
+        VStack{
+            if(!isEmpty){
+                Text("Trip View")
+            } else {
+                AddButtonView(label: "Add trip")
+            }
+        }
     }
 }
 

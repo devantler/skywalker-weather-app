@@ -1,8 +1,16 @@
 import SwiftUI
 
 struct LocationView: View {
+    var isEmpty: Bool = false
+    @ObservedObject var locationViewModel: LocationViewModel = LocationViewModel()
     var body: some View {
-        Text("Location View")
+        VStack{
+            if(!isEmpty){
+                CurrentWeatherView()
+            } else {
+                AddButtonView(label: "Add location")
+            }
+        }
     }
 }
 

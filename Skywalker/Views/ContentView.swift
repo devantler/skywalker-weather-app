@@ -1,23 +1,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedTab: Int
+    private var locationsLen: Int //temp
+    private var tripsLen: Int //temp
+    init(){
+        locationsLen = 1
+        tripsLen = 2
+        selectedTab = locationsLen+1
+    }
+    
     var body: some View {
-        TabView{
-            //We need to make this view show the default add location stuff for empty locations
-            LocationView()
-            //We need make this for loop read in saved locations
-            ForEach(0 ..< 1) { _ in
-                LocationView()
+        TabView(selection: $selectedTab) {
+            LocationView(isEmpty: true)
+                .tabItem {
+                    Label("", systemImage: "person.fill")
+                }.tag(0)
+            ForEach(0 ..< locationsLen) { index in
+                LocationView().tag(1+index)
             }
-            //We need to make this view show the current location
-            LocationView()
-            //We need to make this for loop read in saved trips
-            ForEach(0 ..< 2) { _ in
-                TripView()
+            LocationView().tag(1+locationsLen)
+            ForEach(0 ..< tripsLen) { index in
+                TripView().tag(2+locationsLen+index)
             }
-            // We need to make this view show the default add trip stuff for empty locations
-            TripView()
+            TripView(isEmpty: true).tag(2+locationsLen+tripsLen)
+                .tabItem {
+                    Label("", systemImage: "globe.europe.africa")
+                }.tag(0)
         }.tabViewStyle(.page)
+            .indexViewStyle(.page(backgroundDisplayMode: .always))
     }
     
 }

@@ -8,5 +8,4 @@
 import Foundation
 
 class WeatherApi {
-    public int = 1
 }

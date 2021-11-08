@@ -1,5 +1,5 @@
 import Foundation
 
 public struct Weather {
-    let date: Date
+    var temperature: Double = 10.21
 }
