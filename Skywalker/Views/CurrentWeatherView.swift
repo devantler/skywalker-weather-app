@@ -11,13 +11,14 @@ struct CurrentWeatherView: View {
     var date: Date = Date()
     var locationName: String = "Odense"
     var temperature: Double = 21.24
+    let formatter = RelativeDateTimeFormatter()
+
     var body: some View {
         VStack{
             HStack{
-                //WeatherSymbolView()
+                WeatherSymbolView(weatherStatus: WeatherStatus.Cloudy)
                 VStack{
-                    Text(date.description)
-                    Text(date.description)
+                    Text("\(date, formatter: formatter)").bold()
                 }
             }
             //TemperatureView(temperature)

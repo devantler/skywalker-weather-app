@@ -25,6 +25,8 @@
 		0ADD1D672739657300649B44 /* CurrentWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD1D662739657200649B44 /* CurrentWeatherView.swift */; };
 		0ADD1D69273965A500649B44 /* WeatherForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD1D68273965A500649B44 /* WeatherForecastView.swift */; };
 		0ADD1D742739763700649B44 /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD1D732739763700649B44 /* AddButtonView.swift */; };
+		0ADD1D7627397E2E00649B44 /* WeatherIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD1D7527397E2E00649B44 /* WeatherIconView.swift */; };
+		0ADD1D7827397E8700649B44 /* WeatherStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD1D7727397E8700649B44 /* WeatherStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		0ADD1D662739657200649B44 /* CurrentWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherView.swift; sourceTree = "<group>"; };
 		0ADD1D68273965A500649B44 /* WeatherForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastView.swift; sourceTree = "<group>"; };
 		0ADD1D732739763700649B44 /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
+		0ADD1D7527397E2E00649B44 /* WeatherIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconView.swift; sourceTree = "<group>"; };
+		0ADD1D7727397E8700649B44 /* WeatherStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 				0ADD1D662739657200649B44 /* CurrentWeatherView.swift */,
 				0ADD1D68273965A500649B44 /* WeatherForecastView.swift */,
 				0ADD1D732739763700649B44 /* AddButtonView.swift */,
+				0ADD1D7527397E2E00649B44 /* WeatherIconView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 				0A2E296F2728973A00D3EC34 /* Trip.swift */,
 				0A2E29712728979500D3EC34 /* Location.swift */,
 				0A2E2973272897CE00D3EC34 /* Weather.swift */,
+				0ADD1D7727397E8700649B44 /* WeatherStatus.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -227,6 +233,8 @@
 				0A101E772731A6B900A25C9B /* ServiceRegistry.swift in Sources */,
 				0A101E72273197A000A25C9B /* Inject.swift in Sources */,
 				0A2E296D2728972100D3EC34 /* TripViewModel.swift in Sources */,
+				0ADD1D7627397E2E00649B44 /* WeatherIconView.swift in Sources */,
+				0ADD1D7827397E8700649B44 /* WeatherStatus.swift in Sources */,
 				0A101E6F2731978600A25C9B /* WeatherApi.swift in Sources */,
 				0ADD1D69273965A500649B44 /* WeatherForecastView.swift in Sources */,
 				0A2E29722728979500D3EC34 /* Location.swift in Sources */,
