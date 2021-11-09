@@ -1,5 +1,9 @@
 import Foundation
 
 public class LocationViewModel : ObservableObject {
-    var location: Location = Location()
+    @Published var location: Location
+    
+    init(location: Location){
+        self.location = location
+    }
 }

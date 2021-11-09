@@ -1,5 +1,7 @@
 import Foundation
 
 public struct Weather {
-    var temperature: Double = 10.21
+    var date: Date
+    var temperature: Double
+    var weatherStatus: WeatherStatus
 }

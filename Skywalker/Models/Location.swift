@@ -1,6 +1,6 @@
 import Foundation
 
 public struct Location {
-    var name: String = "Odense"
-    var todaysWeather: Weather = Weather()
+    var name: String
+    var todaysWeather: Weather
 }
