@@ -1,17 +1,17 @@
+import Foundation
 import Swinject
 
 class ServiceRegistry {
     static let shared = ServiceRegistry()
     private let container: Container = Container()
     
-    public func getContainer() -> Container {
-        return container;
+    func resolve<Service>(_ serviceType: Service.Type) -> Service? {
+        return container.resolve(serviceType);
     }
     
     func registerServices() {
         container.register(WeatherApi.self) { _  in
-            return WeatherApi()
+            WeatherApi()
         }.inObjectScope(.container)
-        //Add all services the app needs.
     }
 }

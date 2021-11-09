@@ -5,6 +5,6 @@ import Swinject
 struct Inject<Component> {
     let wrappedValue: Component
     init() {
-        self.wrappedValue = ServiceRegistry.shared.getContainer().resolve(Component.self)!
+        self.wrappedValue = ServiceRegistry.shared.resolve(Component.self)!
     }
 }
