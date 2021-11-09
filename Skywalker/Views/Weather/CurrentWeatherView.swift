@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct CurrentWeatherView: View {
-    var locationName: String
-    var date: Date
-    var weatherStatus: WeatherStatus
-    var temperature: Double
+    @ObservedObject var currentWeatherViewModel: CurrentWeatherViewModel
 
+    init(locationName: String, weather: Weather) {
+        self.currentWeatherViewModel = .init(locationName: locationName, weather: weather)
+    }
+    
     var body: some View {
         VStack{
             HStack{
-                WeatherIconView(weatherStatus: weatherStatus)
+                WeatherIconView(weatherStatus: currentWeatherViewModel.weather.weatherStatus)
                 VStack{
-                    Text(locationName)
-                    Text(temperature.description)
+                    Text(currentWeatherViewModel.locationName)
+                    Text(currentWeatherViewModel.weather.temperature.description)
                 }
             }
             
@@ -29,6 +30,6 @@ struct CurrentWeatherView: View {
 
 struct CurrentWeatherView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrentWeatherView(locationName: "Odense", date: Date(), weatherStatus: WeatherStatus.Sunny, temperature: 22.1)
+        CurrentWeatherView(locationName: "Odense", weather: .init(date: Date(), temperature: 21.45, weatherStatus: WeatherStatus.Sunny))
     }
 }
