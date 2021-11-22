@@ -1,47 +1,42 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var userViewModel: UserViewModel = UserViewModel()
-    @State public var selectedTab: Int
-    private var centerTab: Int
+    @StateObject var userData: UserData = UserData()
+    @State var selectedTab: Int = UserData().locations.count + 1
     
-    init(){
-        self.centerTab = 0
-        self.selectedTab = centerTab
-    }
     var body: some View {
-        let locationsCount: Int = userViewModel.userData.locations.count
-        let tripsCount: Int = userViewModel.userData.trips.count
+        let locationsCount: Int = $userData.locations.count
+        let tripsCount: Int = $userData.trips.count
         TabView(selection: $selectedTab) {
-            AddLocationView(userViewModel: userViewModel)
+            AddLocationView()
                 .tabItem {
                     Label("", systemImage: "plus.circle")
-                }.tag(centerTab-locationsCount-1)
-            ForEach(0 ..< locationsCount) { i in
-                LocationView(location: userViewModel.userData.locations[i])
+                }.tag(0)
+            ForEach(Array(userData.locations.enumerated()), id: \.offset) { index, locationName in
+                LocationView(locationName: locationName)
                     .tabItem {
                         Label("", systemImage: "cloud")
-                    }.tag(centerTab-i-1)
+                    }.tag(index + 1)
             }
-            LocationView(location: .init(name: "Odense", todaysWeather: .init(date: Date(), temperature: 22.2, weatherStatus: WeatherStatus.Sunny)))
+            LocationView()
                 .tabItem {
                     Label("", systemImage: "location.circle")
-                }.tag(centerTab)
+                }.tag(locationsCount + 1)
             ForEach(0 ..< tripsCount) { i in
                 TripView()
                     .tabItem {
                         Label("", systemImage: "airplane.departure")
-                    }.tag(centerTab+i+1)
+                    }.tag(locationsCount+i+1)
             }
-            AddTripView(userViewModel: userViewModel)
+            AddTripView()
                 .tabItem {
                     Label("", systemImage: "plus.circle")
-                }.tag(centerTab+tripsCount+1)
+                }.tag(locationsCount+tripsCount+2)
         }.tabViewStyle(.page)
             .indexViewStyle(.page(backgroundDisplayMode: .always))
             .onAppear {
                 setupAppearance()
-            }
+            }.environmentObject(userData)
         
     }
     

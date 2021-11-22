@@ -1,15 +1,32 @@
 import SwiftUI
 
 struct AddLocationView: View {
-    @ObservedObject var userViewModel: UserViewModel
-        
+    @EnvironmentObject var userData: UserData
+    @State var locationName: String = ""
+    
     var body: some View {
-        AddButtonView(label: "Add location")
+        VStack{
+            TextField("Location name", text: $locationName).multilineTextAlignment(.center).textFieldStyle(.roundedBorder)
+            Button {
+                userData.saveLocation(locationName: locationName)
+                locationName = ""
+            } label: {
+                VStack{
+                    Image(systemName: "plus")
+                        .font(Font.system(.largeTitle))
+                        .frame(width: 75, height: 75)
+                        .foregroundColor(Color.white)
+                        .background(Color.green)
+                        .clipShape(Circle())
+                    Text("Add Location")
+                }
+            }
+        }
     }
 }
 
 struct AddLocationView_Previews: PreviewProvider {
     static var previews: some View {
-        AddLocationView(userViewModel: .init())
+        AddLocationView()
     }
 }

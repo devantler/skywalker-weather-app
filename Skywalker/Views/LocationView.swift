@@ -1,14 +1,28 @@
 import SwiftUI
 
 struct LocationView: View {
+    @EnvironmentObject var userData: UserData
     @ObservedObject var locationViewModel: LocationViewModel
     
-    init(location: Location) {
-        self.locationViewModel = .init(location: location)
+    init(locationName: String = "current") {
+        self.locationViewModel = .init(locationName: locationName)
     }
     
     var body: some View {
         VStack{
+            Button {
+                userData.deleteLocation(locationName: locationViewModel.location.name)
+            } label: {
+                VStack{
+                    Image(systemName: "minus")
+                        .font(Font.system(.largeTitle))
+                        .frame(width: 75, height: 75)
+                        .foregroundColor(Color.white)
+                        .background(Color.green)
+                        .clipShape(Circle())
+                    Text("Delete Location")
+                }
+            }
             CurrentWeatherView(
                 locationName: locationViewModel.location.name,
                 weather: locationViewModel.location.todaysWeather)
@@ -19,6 +33,6 @@ struct LocationView: View {
 
 struct LocationView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationView(location: Location(name: "Odense", todaysWeather: Weather(date: Date(), temperature: 20.21, weatherStatus: WeatherStatus.Sunny)))
+        LocationView(locationName: "Odense")
     }
 }

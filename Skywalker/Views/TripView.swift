@@ -5,11 +5,7 @@ struct TripView: View {
     @ObservedObject var tripViewModel: TripViewModel = TripViewModel()
     var body: some View {
         VStack{
-            if(!isEmpty){
-                Text("Trip View")
-            } else {
-                AddButtonView(label: "Add trip")
-            }
+            Text("Trip View")
         }
     }
 }
