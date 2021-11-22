@@ -3,8 +3,6 @@ import SwiftUI
 struct LocationView: View {
     @ObservedObject var locationViewModel: LocationViewModel
     
-    @StateObject var weatherApi = WeatherApi()
-    
     init(location: Location) {
         self.locationViewModel = .init(location: location)
     }
@@ -14,7 +12,7 @@ struct LocationView: View {
             CurrentWeatherView(
                 locationName: locationViewModel.location.name,
                 weather: locationViewModel.location.todaysWeather)
-            Text("\(weatherApi.current.weather[0].main)").padding()
+            Text("\(locationViewModel.weatherApi.current.weather[0].main)").padding()
         }
     }
 }
