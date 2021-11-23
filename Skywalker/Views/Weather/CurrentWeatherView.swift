@@ -17,10 +17,10 @@ struct CurrentWeatherView: View {
     var body: some View {
         VStack{
             HStack{
-                WeatherIconView(weatherStatus: currentWeatherViewModel.weather.weatherStatus)
+                WeatherIconView(size: 50, weatherStatus: currentWeatherViewModel.weather.weatherStatus)
                 VStack{
-                    Text(currentWeatherViewModel.locationName)
-                    Text(currentWeatherViewModel.weather.temperature.description)
+                    Text(currentWeatherViewModel.locationName).font(Font.system(.title3))
+                    Text(currentWeatherViewModel.weather.temperature.description).font(Font.system(.title3))
                 }
             }
             

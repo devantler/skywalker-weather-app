@@ -3,11 +3,13 @@ import SwiftUI
 struct AddLocationView: View {
     @EnvironmentObject var userData: UserData
     @State var locationName: String = ""
+    @State private var showAlert = false
     
     var body: some View {
         VStack{
             TextField("Location name", text: $locationName).multilineTextAlignment(.center).textFieldStyle(.roundedBorder)
             Button {
+                showAlert = true
                 userData.saveLocation(locationName: locationName)
                 locationName = ""
             } label: {

@@ -9,24 +9,30 @@ struct LocationView: View {
     }
     
     var body: some View {
-        VStack{
-            Button {
-                userData.deleteLocation(locationName: locationViewModel.location.name)
-            } label: {
+        VStack(alignment: .center){
+            ZStack(alignment: .top){
+                if(locationViewModel.location.name != "current"){
+                    HStack(){
+                        Spacer()
+                        Button {
+                            userData.deleteLocation(locationName: locationViewModel.location.name)
+                        } label: {
+                            Image(systemName: "xmark.circle.fill")
+                                .font(Font.system(.largeTitle))
+                                .frame(width: 25, height: 25)
+                                .foregroundColor(Color.red)
+                                .padding()
+                        }
+                    }
+                }
                 VStack{
-                    Image(systemName: "minus")
-                        .font(Font.system(.largeTitle))
-                        .frame(width: 75, height: 75)
-                        .foregroundColor(Color.white)
-                        .background(Color.green)
-                        .clipShape(Circle())
-                    Text("Delete Location")
+                    CurrentWeatherView(
+                        locationName: locationViewModel.location.name,
+                        weather: locationViewModel.location.todaysWeather)
+                    WeatherForecastView()
                 }
             }
-            CurrentWeatherView(
-                locationName: locationViewModel.location.name,
-                weather: locationViewModel.location.todaysWeather)
-            Text("\(locationViewModel.weatherApi.current.weather[0].main)").padding()
+            Spacer()
         }
     }
 }

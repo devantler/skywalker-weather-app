@@ -9,7 +9,29 @@ import SwiftUI
 
 struct WeatherForecastView: View {
     var body: some View {
-        Text("Help")
+        VStack{
+            HStack{
+                WeatherIconView(weatherStatus: WeatherStatus.Cloudy)
+                Text("Odense")
+                Text("8.3")
+            }
+            HStack{
+                WeatherIconView(weatherStatus: WeatherStatus.Sunny)
+                Text("Kolding")
+                Text("10")
+            }
+            HStack{
+                WeatherIconView(weatherStatus: WeatherStatus.Cloudy)
+                Text("Århus")
+                Text("7.1")
+            }
+            HStack{
+                WeatherIconView(weatherStatus: WeatherStatus.Sunny)
+                Text("Sønderbog")
+                Text("10.8")
+            }
+        }
+        
     }
 }
 
