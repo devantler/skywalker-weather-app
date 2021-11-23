@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct CurrentWeatherView: View {
-    @ObservedObject var currentWeatherViewModel: CurrentWeatherViewModel
+    @ObservedObject var weatherViewModel: WeatherViewModel
 
     init(locationName: String, weather: Weather) {
-        self.currentWeatherViewModel = .init(locationName: locationName, weather: weather)
+        self.weatherViewModel = .init(locationName: locationName, weather: weather)
     }
     
     var body: some View {
         VStack{
             HStack{
-                WeatherIconView(size: 50, weatherStatus: currentWeatherViewModel.weather.weatherStatus)
+                WeatherIconView(size: 50, weatherStatus: weatherViewModel.weather.weatherStatus)
                 VStack{
-                    Text(currentWeatherViewModel.locationName).font(Font.system(.title3))
-                    Text(currentWeatherViewModel.weather.temperature.description).font(Font.system(.title3))
+                    Text(weatherViewModel.locationName).font(Font.system(.title3))
+                    Text(weatherViewModel.weather.temperature.description).font(Font.system(.title3))
                 }
             }
             

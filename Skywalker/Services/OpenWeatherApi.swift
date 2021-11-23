@@ -30,7 +30,7 @@ struct WeatherDataDaily: Codable {
 }
 
 
-class WeatherApi: ObservableObject{
+class OpenWeatherApi: ObservableObject{
     let session = URLSession(configuration: .default)
     var currentTask: URLSessionDataTask? = nil
     let jsonDecoder = JSONDecoder()

@@ -28,7 +28,7 @@ struct LocationView: View {
                 VStack{
                     CurrentWeatherView(
                         locationName: locationViewModel.location.name,
-                        weather: locationViewModel.location.todaysWeather)
+                        weather: locationViewModel.location.todaysWeather).frame(height: 200)
                     WeatherForecastView()
                 }
             }

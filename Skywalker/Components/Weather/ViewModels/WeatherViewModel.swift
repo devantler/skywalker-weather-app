@@ -1,6 +1,6 @@
 import Foundation
 
-public class CurrentWeatherViewModel : ObservableObject {
+public class WeatherViewModel : ObservableObject {
     @Published var locationName: String
     @Published var weather: Weather
     

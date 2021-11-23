@@ -8,21 +8,12 @@ struct AddLocationView: View {
     var body: some View {
         VStack{
             TextField("Location name", text: $locationName).multilineTextAlignment(.center).textFieldStyle(.roundedBorder)
-            Button {
+            
+            RoundButton(action: {
                 showAlert = true
                 userData.saveLocation(locationName: locationName)
                 locationName = ""
-            } label: {
-                VStack{
-                    Image(systemName: "plus")
-                        .font(Font.system(.largeTitle))
-                        .frame(width: 75, height: 75)
-                        .foregroundColor(Color.white)
-                        .background(Color.green)
-                        .clipShape(Circle())
-                    Text("Add Location")
-                }
-            }
+            }, iconSystemName: "plus", buttonText: "Add Location")
         }
     }
 }

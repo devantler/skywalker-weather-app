@@ -14,22 +14,26 @@ struct WeatherForecastView: View {
                 WeatherIconView(weatherStatus: WeatherStatus.Cloudy)
                 Text("Odense")
                 Text("8.3")
-            }
+                Spacer()
+            }.border(Color.gray)
             HStack{
                 WeatherIconView(weatherStatus: WeatherStatus.Sunny)
                 Text("Kolding")
                 Text("10")
-            }
+                Spacer()
+            }.border(Color.gray)
             HStack{
                 WeatherIconView(weatherStatus: WeatherStatus.Cloudy)
                 Text("Århus")
                 Text("7.1")
-            }
+                Spacer()
+            }.border(Color.gray)
             HStack{
                 WeatherIconView(weatherStatus: WeatherStatus.Sunny)
                 Text("Sønderbog")
                 Text("10.8")
-            }
+                Spacer()
+            }.border(Color.gray)
         }
         
     }

@@ -1,7 +1,7 @@
 import Foundation
 
 public class LocationViewModel : ObservableObject {
-    @Inject var weatherApi: WeatherApi
+    @Inject var openWeatherApi: OpenWeatherApi
     @Published var location: Location
     
     init(locationName: String){

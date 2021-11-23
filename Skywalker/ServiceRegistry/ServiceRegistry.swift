@@ -10,8 +10,8 @@ class ServiceRegistry {
     }
     
     func registerServices() {
-        container.register(WeatherApi.self) { _  in
-            WeatherApi()
+        container.register(OpenWeatherApi.self) { _  in
+            OpenWeatherApi()
         }.inObjectScope(.container)
     }
 }
