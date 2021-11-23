@@ -9,22 +9,28 @@ import Foundation
 
 struct WeatherData: Codable {
     var current: WeatherDataCurrent
-    //var daily: WeatherDataDaily
+    var daily: [WeatherDataDaily] = [WeatherDataDaily()]
 }
 
 struct WeatherDataCurrent: Codable {
     var temp: Double = 0.0
     var weather: [SingleWeather] = [SingleWeather()]
 }
-//move these to owm files and make the full object structure we need
+
 struct SingleWeather: Codable {
     var main: String = ""
     var description: String = ""
 }
 
 struct WeatherDataDaily: Codable {
-    var temp: Double = 0.0
+    var temp: WeatherDataDailyTemp = WeatherDataDailyTemp()
+    var weather: [SingleWeather] = [SingleWeather()]
 }
+
+struct WeatherDataDailyTemp: Codable {
+    var day: Double = 0.0
+}
+
 
 struct GeoLocationData: Codable {
     var lon: Double = 0.0
@@ -46,10 +52,13 @@ class WeatherApi: ObservableObject{
     var currentTask: URLSessionDataTask? = nil
     let jsonDecoder = JSONDecoder()
     
+    //the only two important objects
+    @Published var current: WeatherDataCurrent = WeatherDataCurrent()
+    @Published var daily: [WeatherDataDaily] = [WeatherDataDaily()]
+    
+    // these dont have to be published
     @Published var lat: Double = 0.0
     @Published var lon: Double = 0.0
-    @Published var current: WeatherDataCurrent = WeatherDataCurrent()
-    //@Published var daily: WeatherDataDaily = WeatherDataDaily()
     @Published var downloadingWeatherData: Bool = false
     @Published var downloadingGeoLocationData: Bool = false
     
@@ -72,11 +81,8 @@ class WeatherApi: ObservableObject{
                 return
             }
             if let data = data, let geoLocationData = try? self?.jsonDecoder.decode([FailableDecodable<GeoLocationData>].self, from: data) {
-                print("GeoLocationData")
-                //print(geoLocationData[0].base)
                 if let geoData = geoLocationData[0].base{
                     DispatchQueue.main.async {
-                        print(geoData.lat)
                         self?.getWeatherData(latitude: geoData.lat, longitude: geoData.lon)
                     }
                 }
@@ -91,7 +97,6 @@ class WeatherApi: ObservableObject{
     }
     
     func getWeatherData(latitude: Double, longitude: Double){
-        print("lat lon in getWeatherData")
         let openWeatherApiURL = "https://api.openweathermap.org/data/2.5/onecall?lat=\(latitude)&lon=\(longitude)&exclude=minutely,hourly,alerts0&appid=7b22a3a1174e9275a9916a73062eed8e"
         var request = URLRequest(url: URL(string: openWeatherApiURL)!)
         request.httpMethod = "GET"
@@ -112,7 +117,8 @@ class WeatherApi: ObservableObject{
                     //self?.timezone = weatherData.timezone
                     //self?.timezone_offset = weatherData.timezone_offset
                     self?.current = weatherData.current
-                    //self?.daily = weatherData.daily
+                    self?.daily = weatherData.daily
+                    //print(weatherData.daily)
                 }
             } else {
                 print("Something went wrong. Try again.")
@@ -124,5 +130,3 @@ class WeatherApi: ObservableObject{
         currentTask?.resume()
     }
 }
-
-- [ ]
