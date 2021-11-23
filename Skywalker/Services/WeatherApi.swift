@@ -8,10 +8,6 @@
 import Foundation
 
 struct WeatherData: Codable {
-    var lat: Double
-    var lon: Double
-    var timezone: String
-    var timezone_offset: Int
     var current: WeatherDataCurrent
     //var daily: WeatherDataDaily
 }
@@ -20,15 +16,30 @@ struct WeatherDataCurrent: Codable {
     var temp: Double = 0.0
     var weather: [SingleWeather] = [SingleWeather()]
 }
-
+//move these to owm files and make the full object structure we need
 struct SingleWeather: Codable {
     var main: String = ""
+    var description: String = ""
 }
 
 struct WeatherDataDaily: Codable {
     var temp: Double = 0.0
 }
 
+struct GeoLocationData: Codable {
+    var lon: Double = 0.0
+    var lat: Double = 0.0
+}
+
+struct FailableDecodable<Base : Decodable> : Decodable {
+
+    let base: Base?
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        self.base = try? container.decode(Base.self)
+    }
+}
 
 class WeatherApi: ObservableObject{
     let session = URLSession(configuration: .default)
@@ -37,18 +48,50 @@ class WeatherApi: ObservableObject{
     
     @Published var lat: Double = 0.0
     @Published var lon: Double = 0.0
-    @Published var timezone: String = ""
-    @Published var timezone_offset: Int = 0
     @Published var current: WeatherDataCurrent = WeatherDataCurrent()
     //@Published var daily: WeatherDataDaily = WeatherDataDaily()
     @Published var downloadingWeatherData: Bool = false
+    @Published var downloadingGeoLocationData: Bool = false
     
     
     init() {
-        getWeatherData(latitude: 55.403756, longitude: 10.40237)
+        getGeoLocationData(city: "Odense")
+    }
+    
+    func getGeoLocationData(city: String){
+        let openWeatherApiURL = "https://api.openweathermap.org/geo/1.0/direct?q=\(city)&limit=1&appid=7b22a3a1174e9275a9916a73062eed8e"
+        var request = URLRequest(url: URL(string: openWeatherApiURL)!)
+        request.httpMethod = "GET"
+        currentTask?.cancel()
+        downloadingGeoLocationData = true
+        currentTask = session.dataTask(with: request, completionHandler: { [weak self] (data, response, error) in
+            print("received response")
+            //sleep(2)
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            if let data = data, let geoLocationData = try? self?.jsonDecoder.decode([FailableDecodable<GeoLocationData>].self, from: data) {
+                print("GeoLocationData")
+                //print(geoLocationData[0].base)
+                if let geoData = geoLocationData[0].base{
+                    DispatchQueue.main.async {
+                        print(geoData.lat)
+                        self?.getWeatherData(latitude: geoData.lat, longitude: geoData.lon)
+                    }
+                }
+            } else {
+                print("")
+            }
+            DispatchQueue.main.async {
+                self?.downloadingGeoLocationData = false
+            }
+        })
+        currentTask?.resume()
     }
     
     func getWeatherData(latitude: Double, longitude: Double){
+        print("lat lon in getWeatherData")
         let openWeatherApiURL = "https://api.openweathermap.org/data/2.5/onecall?lat=\(latitude)&lon=\(longitude)&exclude=minutely,hourly,alerts0&appid=7b22a3a1174e9275a9916a73062eed8e"
         var request = URLRequest(url: URL(string: openWeatherApiURL)!)
         request.httpMethod = "GET"
@@ -64,10 +107,10 @@ class WeatherApi: ObservableObject{
             if let data = data, let weatherData = try? self?.jsonDecoder.decode(WeatherData.self, from: data) {
                 print(weatherData)
                 DispatchQueue.main.async {
-                    self?.lat = weatherData.lat
-                    self?.lon = weatherData.lon
-                    self?.timezone = weatherData.timezone
-                    self?.timezone_offset = weatherData.timezone_offset
+                    //self?.lat = weatherData.lat
+                    //self?.lon = weatherData.lon
+                    //self?.timezone = weatherData.timezone
+                    //self?.timezone_offset = weatherData.timezone_offset
                     self?.current = weatherData.current
                     //self?.daily = weatherData.daily
                 }
@@ -82,3 +125,4 @@ class WeatherApi: ObservableObject{
     }
 }
 
+- [ ]
