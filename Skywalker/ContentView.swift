@@ -12,7 +12,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("", systemImage: "plus.circle")
                 }.tag(0)
-            ForEach(Array(userData.locations.enumerated()), id: \.offset) { index, locationName in
+            ForEach(Array(userData.locations.reversed().enumerated()), id: \.offset) { index, locationName in
                 LocationView(locationName: locationName)
                     .tabItem {
                         Label("", systemImage: "cloud")
@@ -32,12 +32,11 @@ struct ContentView: View {
                 .tabItem {
                     Label("", systemImage: "plus.circle")
                 }.tag(locationsCount+tripsCount+2)
-        }.tabViewStyle(.page)
+        }.tabViewStyle(.page).id(locationsCount+tripsCount+2)
             .indexViewStyle(.page(backgroundDisplayMode: .always))
             .onAppear {
                 setupAppearance()
             }.environmentObject(userData)
-        
     }
     
     func setupAppearance() {
