@@ -21,15 +21,20 @@ struct LocationView: View {
                                 .font(Font.system(.largeTitle))
                                 .frame(width: 25, height: 25)
                                 .foregroundColor(Color.red)
-                                .padding()
+                                .padding(.trailing).padding(.top)
+                                
                         }
-                    }
+                    }.zIndex(1)
                 }
                 VStack{
-                    CurrentWeatherView(
-                        locationName: locationViewModel.location.name,
-                        weather: locationViewModel.location.todaysWeather).frame(height: 200)
-                    WeatherForecastView()
+                    CardView{
+                        CurrentWeatherView(
+                            locationName: locationViewModel.location.name,
+                            weather: locationViewModel.location.todaysWeather)
+                    }.padding()
+                    CardView{
+                        WeatherForecastView()
+                    }.padding()
                 }
             }
             Spacer()

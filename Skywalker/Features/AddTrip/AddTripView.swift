@@ -3,7 +3,10 @@ import SwiftUI
 struct AddTripView: View {
     
     var body: some View {
-        RoundButton(action: {print("Added trip")}, iconSystemName: "plus", buttonText: "Add Trip")
+        VStack{
+            RoundButton(action: {print("Added trip")}, iconSystemName: "plus", buttonText: "Add Trip")
+        }
+
     }
 }
 
