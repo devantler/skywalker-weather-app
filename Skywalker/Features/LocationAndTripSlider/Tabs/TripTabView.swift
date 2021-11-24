@@ -1,13 +1,6 @@
-//
-//  TripTabView.swift
-//  Skywalker
-//
-//  Created by Nikolai Emil Damm on 23/11/2021.
-//
-
 import SwiftUI
 
-struct TripTabView: View {
+struct TripWeatherTabView: View {
     var tag: Int
     var body: some View {
         TripView()
@@ -17,8 +10,8 @@ struct TripTabView: View {
     }
 }
 
-struct TripTabView_Previews: PreviewProvider {
+struct TripWeatherTabView_Previews: PreviewProvider {
     static var previews: some View {
-        TripTabView(tag: 0)
+        TripWeatherTabView(tag: 0)
     }
 }

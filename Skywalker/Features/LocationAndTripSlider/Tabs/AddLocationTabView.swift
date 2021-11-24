@@ -1,10 +1,3 @@
-//
-//  AddLocationTabView.swift
-//  Skywalker
-//
-//  Created by Nikolai Emil Damm on 23/11/2021.
-//
-
 import SwiftUI
 
 struct AddLocationTabView: View {

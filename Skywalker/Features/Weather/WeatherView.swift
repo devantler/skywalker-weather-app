@@ -1,21 +1,22 @@
 import SwiftUI
 
-struct LocationView: View {
-    @EnvironmentObject var userData: UserData
-    @ObservedObject var locationViewModel: LocationViewModel
+struct WeatherView: View {
+    var deleteAction: () -> Void
+    @ObservedObject var viewModel: WeatherViewModel
     
-    init(locationName: String = "current") {
-        self.locationViewModel = .init(locationName: locationName)
+    init(deleteAction: @escaping () -> Void, locationName: String = "current") {
+        self.deleteAction = deleteAction
+        self.viewModel = .init(locationName: locationName)
     }
     
     var body: some View {
         VStack(alignment: .center){
             ZStack(alignment: .top){
-                if(locationViewModel.location.name != "current"){
+                if(viewModel.locationAndWeather.0.name != "current"){
                     HStack(){
                         Spacer()
                         Button {
-                            userData.deleteLocation(locationName: locationViewModel.location.name)
+                            deleteAction()
                         } label: {
                             Image(systemName: "xmark.circle.fill")
                                 .font(Font.system(.largeTitle))
@@ -27,13 +28,11 @@ struct LocationView: View {
                     }.zIndex(1)
                 }
                 VStack{
-                    CardView{
-                        CurrentWeatherView(
-                            locationName: locationViewModel.location.name,
-                            weather: locationViewModel.location.todaysWeather)
+                    Card{
+                        WeatherLine(location: viewModel.locationAndWeather.0, weather: viewModel.locationAndWeather.1)
                     }.padding()
-                    CardView{
-                        WeatherForecastView()
+                    Card{
+                        WeatherForecast()
                     }.padding()
                 }
             }
@@ -42,8 +41,8 @@ struct LocationView: View {
     }
 }
 
-struct LocationView_Previews: PreviewProvider {
+struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationView(locationName: "Odense")
+        WeatherView(deleteAction: {print("clicked delete")}, locationName: "Odense")
     }
 }

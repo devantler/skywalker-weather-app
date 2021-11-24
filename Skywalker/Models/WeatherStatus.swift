@@ -1,4 +1,4 @@
-public enum WeatherStatus {
+enum WeatherStatus {
     case Sunny
     case Cloudy
 }

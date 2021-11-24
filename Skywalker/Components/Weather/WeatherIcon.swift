@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct WeatherIconView: View {
-    public var size: CGFloat = 30
-    public var weatherStatus: WeatherStatus
+struct WeatherIcon: View {
+    var size: CGFloat = 30
+    var weatherStatus: WeatherStatus
     
     var body: some View {
         switch weatherStatus {
@@ -14,8 +14,8 @@ struct WeatherIconView: View {
     }
 }
 
-struct WeatherIconView_Previews: PreviewProvider {
+struct WeatherIcon_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherIconView(weatherStatus: WeatherStatus.Cloudy)
+        WeatherIcon(weatherStatus: WeatherStatus.Cloudy)
     }
 }

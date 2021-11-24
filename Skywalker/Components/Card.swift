@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CardView<Content: View>: View  {
+struct Card<Content: View>: View  {
     var alignment: HorizontalAlignment = .center
     let content: Content
     
@@ -31,9 +31,9 @@ struct CardView<Content: View>: View  {
     
 }
 
-struct CardView_Previews: PreviewProvider {
+struct Card_Previews: PreviewProvider {
     static var previews: some View {
-        CardView{
+        Card{
             Text("Test")
         }
     }

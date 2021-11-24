@@ -7,29 +7,29 @@
 
 import SwiftUI
 
-struct WeatherForecastView: View {
+struct WeatherForecast: View {
     var body: some View {
         VStack{
             HStack{
-                WeatherIconView(weatherStatus: WeatherStatus.Cloudy)
+                WeatherIcon(weatherStatus: WeatherStatus.Cloudy)
                 Text("Odense")
                 Text("8.3")
                 Spacer()
             }.border(Color.gray)
             HStack{
-                WeatherIconView(weatherStatus: WeatherStatus.Sunny)
+                WeatherIcon(weatherStatus: WeatherStatus.Sunny)
                 Text("Kolding")
                 Text("10")
                 Spacer()
             }.border(Color.gray)
             HStack{
-                WeatherIconView(weatherStatus: WeatherStatus.Cloudy)
+                WeatherIcon(weatherStatus: WeatherStatus.Cloudy)
                 Text("Århus")
                 Text("7.1")
                 Spacer()
             }.border(Color.gray)
             HStack{
-                WeatherIconView(weatherStatus: WeatherStatus.Sunny)
+                WeatherIcon(weatherStatus: WeatherStatus.Sunny)
                 Text("Sønderbog")
                 Text("10.8")
                 Spacer()
@@ -39,8 +39,8 @@ struct WeatherForecastView: View {
     }
 }
 
-struct WeatherForecastView_Previews: PreviewProvider {
+struct WeatherForecast_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherForecastView()
+        WeatherForecast()
     }
 }

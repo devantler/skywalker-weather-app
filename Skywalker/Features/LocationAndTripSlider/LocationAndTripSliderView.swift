@@ -1,44 +1,34 @@
-//
-//  LocationAndTripSliderView.swift
-//  Skywalker
-//
-//  Created by Nikolai Emil Damm on 23/11/2021.
-//
-
 import SwiftUI
 
 struct LocationAndTripSliderView: View {
     @StateObject var userData: UserData = UserData()
-    @State var selectedTab: Int = UserData().locations.count + 1
+    @StateObject var viewModel: LocationAndTripSliderViewModel = LocationAndTripSliderViewModel()
     
     var body: some View {
-        let locationsCount: Int = $userData.locations.count
-        let tripsCount: Int = $userData.trips.count
-        let totalTabCount: Int = locationsCount + tripsCount + 2
-        TabView(selection: $selectedTab) {
+        TabView(selection: $viewModel.tabs.selected) {
             AddLocationTabView(tag: 0)
             
             ForEach(Array(userData.locations.reversed().enumerated()), id: \.offset) { index, locationName in
-                LocationTabView(tag: index + 1, locationName: locationName)
+                WeatherTabView(tag: index + 1, locationName: locationName)
             }
             
-            CurrentLocationTabView(tag: locationsCount + 1)
+            CurrentWeatherTabView(tag: userData.locations.count + 1)
             
-            ForEach(0 ..< tripsCount) { i in
-                TripTabView(tag: locationsCount+i+1)
+            ForEach(0 ..< userData.trips.count) { i in
+                TripWeatherTabView(tag: userData.locations.count+i+1)
             }
             
-            AddTripTabView(tag: locationsCount+tripsCount+2)
-        }.id(totalTabCount)
-            .tabViewStyle(.page)
-            .indexViewStyle(.page(backgroundDisplayMode: .always))
-            .onAppear {
-                setupAppearance()
-            }.environmentObject(userData)
-    }
-    
-    func setupAppearance() {
-        UIPageControl.appearance().currentPageIndicatorTintColor = .systemBlue
+            AddTripTabView(tag: userData.locations.count + userData.trips.count + 2)
+        }
+        .indexViewStyle(.page(backgroundDisplayMode: .always))
+        .tabViewStyle(.page)
+        .onAppear {
+            viewModel.setupTabsAppearance()
+            viewModel.tabs.selected = userData.locations.count + 1
+            viewModel.tabs.count = userData.locations.count + userData.trips.count + 2
+        }
+        .id(viewModel.tabs.count)
+        .environmentObject(userData)
     }
 }
 

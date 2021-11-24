@@ -1,10 +1,10 @@
 import Foundation
 
-public class TripViewModel : ObservableObject {
+class TripViewModel : ObservableObject {
     var trip: Trip = Trip()
     @Inject private var openWeatherApi: OpenWeatherApi
     
-    func addLocationToTrip(location: Location){
+    func addWeatherToTrip(location: Weather){
         //Just an example method we might need in the TripViewModel
     }
 }

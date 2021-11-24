@@ -1,20 +1,20 @@
 import Foundation
-public class UserData : ObservableObject {
+class UserData : ObservableObject {
     private var defaults: UserDefaults = UserDefaults.standard
-    @Published public var locations: [String] = []
-    @Published public var trips: [Trip] = []
+    @Published var locations: [String] = []
+    @Published var trips: [Trip] = []
     
     init(){
         loadLocations()
         self.trips = loadTrips()
     }
     
-    public func saveLocation(locationName: String) {
+    func saveLocation(locationName: String) {
         self.locations.append(locationName)
         defaults.set(self.locations, forKey: "locations")
     }
     
-    public func deleteLocation(locationName: String) {
+    func deleteLocation(locationName: String) {
         for (index, locName) in self.locations.enumerated() {
             if locName == locationName {
                 self.locations.remove(at: index)

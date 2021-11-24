@@ -8,7 +8,7 @@ struct SkywalkerApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LocationAndTripSliderView().background(Color.blue)
         }
     }
 }
