@@ -2,7 +2,7 @@ import SwiftUI
 
 struct LocationAndTripSliderView: View {
     @StateObject var userData: UserData = UserData()
-    @StateObject var viewModel: LocationAndTripSliderViewModel = LocationAndTripSliderViewModel()
+    @StateObject var viewModel: LocationAndTripSliderViewModel = LocationAndTripSliderViewModel(selectedTab: UserData().locations.count + 1)
     
     var body: some View {
         TabView(selection: $viewModel.tabs.selected) {
@@ -19,15 +19,12 @@ struct LocationAndTripSliderView: View {
             }
             
             AddTripTabView(tag: userData.locations.count + userData.trips.count + 2)
+        }.onAppear {
+            viewModel.setupTabsAppearance()
         }
         .indexViewStyle(.page(backgroundDisplayMode: .always))
         .tabViewStyle(.page)
-        .onAppear {
-            viewModel.setupTabsAppearance()
-            viewModel.tabs.selected = userData.locations.count + 1
-            viewModel.tabs.count = userData.locations.count + userData.trips.count + 2
-        }
-        .id(viewModel.tabs.count)
+        .id($userData.locations.count + $userData.trips.count + 2)
         .environmentObject(userData)
     }
 }

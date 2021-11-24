@@ -8,6 +8,5 @@
 import Foundation
 import SwiftUI
 struct Tabs {
-    var selected: Int = 0
-    var count: Int = 0
+    var selected: Int
 }
