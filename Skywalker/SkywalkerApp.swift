@@ -8,8 +8,7 @@ struct SkywalkerApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            LocationAndTripSliderView().background(Color.blue)
+            LocationAndTripSliderView()
         }
     }
 }
-

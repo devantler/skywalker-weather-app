@@ -29,7 +29,7 @@ struct WeatherView: View {
                 }
                 VStack{
                     Card{
-                        WeatherLine(location: viewModel.locationAndWeather.0, weather: viewModel.locationAndWeather.1)
+                        WeatherLine(location: viewModel.locationAndWeather.0, weather: viewModel.locationAndWeather.1, styling: WeatherLineStyling(fontStyle: .title3, iconSize: 50))
                     }.padding()
                     Card{
                         WeatherForecast()
