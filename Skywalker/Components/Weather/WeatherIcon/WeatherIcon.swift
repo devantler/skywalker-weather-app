@@ -9,16 +9,18 @@ struct WeatherIcon: View {
     
     var body: some View {
         switch viewModel.weatherStatus {
-        case WeatherStatus.Sunny:
+        case .Sunny:
             Image(systemName: "sun.max.fill").foregroundColor(.yellow).font(.system(size: viewModel.styling.size))
-        case WeatherStatus.Cloudy:
+        case .Cloudy:
             Image(systemName: "cloud.fill").foregroundColor(.gray).font(.system(size: viewModel.styling.size))
+        case .None:
+            EmptyView()
         }
     }
-}
-
-struct WeatherIcon_Previews: PreviewProvider {
-    static var previews: some View {
-        WeatherIcon(weatherStatus: WeatherStatus.Sunny)
+    
+    struct WeatherIcon_Previews: PreviewProvider {
+        static var previews: some View {
+            WeatherIcon(weatherStatus: WeatherStatus.Sunny)
+        }
     }
 }

@@ -1,5 +1,6 @@
 import Foundation
 class UserData : ObservableObject {
+    @Inject var openWeatherApi: OpenWeatherApi
     private var defaults: UserDefaults = UserDefaults.standard
     @Published var locations: [String] = []
     @Published var trips: [Trip] = []
@@ -10,8 +11,10 @@ class UserData : ObservableObject {
     }
     
     func saveLocation(locationName: String) {
-        self.locations.append(locationName)
-        defaults.set(self.locations, forKey: "locations")
+        openWeatherApi.fetchGeoLocation(city: locationName, completion:  { (lat, lon) in
+            self.locations.append(locationName)
+            self.defaults.set(self.locations, forKey: "locations")
+        })
     }
     
     func deleteLocation(locationName: String) {

@@ -2,15 +2,15 @@ import SwiftUI
 
 struct AddLocationView: View {
     @EnvironmentObject var userData: UserData
-    @State var locationName: String = ""
+    @StateObject var viewModel: AddLocationViewModel = AddLocationViewModel()
     
     var body: some View {
         VStack{
-            TextField("Location name", text: $locationName).textFieldStyle(RoundedBorderTextFieldStyle()).padding(20)
+            TextField("Location name", text: $viewModel.location.name).textFieldStyle(RoundedBorderTextFieldStyle()).padding(20)
             
             RoundButton(action: {
-                userData.saveLocation(locationName: locationName)
-                locationName = ""
+                userData.saveLocation(locationName: viewModel.location.name)
+                viewModel.location.name = ""
             }, iconSystemName: "plus", buttonText: "")
         }
     }

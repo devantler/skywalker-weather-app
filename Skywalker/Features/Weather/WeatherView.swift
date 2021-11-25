@@ -37,6 +37,8 @@ struct WeatherView: View {
                 }
             }
             Spacer()
+        }.onAppear{
+            viewModel.updateWeather()
         }
     }
 }
