@@ -12,6 +12,7 @@ struct RoundButton: View {
     var iconSystemName: String
     var buttonText: String
     var size: CGFloat = 50
+    var isDisabled = false
     var body: some View {
         Button {
             action()
@@ -21,7 +22,7 @@ struct RoundButton: View {
                     .font(Font.system(.largeTitle))
                     .frame(width: size, height: size)
                     .foregroundColor(Color.white)
-                    .background(Color.green)
+                    .background(isDisabled ? Color.green.opacity(0.6)  : Color.green )
                     .clipShape(Circle())
                 Text(buttonText)
             }

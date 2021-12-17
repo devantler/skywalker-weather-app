@@ -1,18 +1,19 @@
 import SwiftUI
 
+
 struct WeatherView: View {
     var deleteAction: () -> Void
     @ObservedObject var viewModel: WeatherViewModel
     
-    init(deleteAction: @escaping () -> Void, locationName: String = "current") {
+    init(deleteAction: @escaping () -> Void, locationName: String, isCurrentLocation: Bool = false) {
         self.deleteAction = deleteAction
-        self.viewModel = .init(locationName: locationName)
+        self.viewModel = .init(locationName: locationName, isCurrentLocation: isCurrentLocation)
     }
     
     var body: some View {
         VStack(alignment: .center){
             ZStack(alignment: .top){
-                if(viewModel.locationAndWeather.0.name != "current"){
+                if(!viewModel.isCurrentLocation){
                     HStack(){
                         Spacer()
                         Button {
@@ -23,7 +24,7 @@ struct WeatherView: View {
                                 .frame(width: 25, height: 25)
                                 .foregroundColor(Color.red)
                                 .padding(.trailing).padding(.top)
-                                
+                            
                         }
                     }.zIndex(1)
                 }
@@ -37,8 +38,6 @@ struct WeatherView: View {
                 }
             }
             Spacer()
-        }.onAppear{
-            viewModel.updateWeather()
         }
     }
 }

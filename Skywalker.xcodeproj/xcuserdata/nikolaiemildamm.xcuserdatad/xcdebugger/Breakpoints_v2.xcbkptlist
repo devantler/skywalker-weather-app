@@ -30,9 +30,9 @@
             filePath = "Skywalker/Features/Weather/WeatherViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "7"
-            endingLineNumber = "7"
-            landmarkName = "init(locationName:)"
+            startingLineNumber = "9"
+            endingLineNumber = "9"
+            landmarkName = "init(locationName:isCurrentLocation:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -94,8 +94,8 @@
             filePath = "Skywalker/EnvironmentObjects/UserData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "saveLocation(locationName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -130,6 +130,38 @@
             endingLineNumber = "9"
             landmarkName = "fetchGeoLocation(city:completion:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "696A7A87-1F21-48A3-810F-FBFA608191E5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Skywalker/EnvironmentObjects/UserData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "init()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BB9CD1F2-9FB9-4721-A6F9-3B5E19E57CAF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Skywalker/Features/LocationAndTripSlider/LocationAndTripSliderView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

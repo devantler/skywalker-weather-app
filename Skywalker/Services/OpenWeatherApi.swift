@@ -2,7 +2,7 @@ import Foundation
 
 class OpenWeatherApi: ObservableObject{
     func fetchGeoLocation(city: String, completion: @escaping (Double, Double) -> Void){
-        let url = "https://api.openweathermap.org/geo/1.0/direct?q=\(city)&limit=1&appid=7b22a3a1174e9275a9916a73062eed8e"
+        let url = "https://api.openweathermap.org/geo/1.0/direct?q=\(city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)&limit=1&appid=7b22a3a1174e9275a9916a73062eed8e"
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "GET"
         URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in

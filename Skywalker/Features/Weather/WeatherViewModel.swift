@@ -1,10 +1,13 @@
 import Foundation
+import SwiftUI
 
 class WeatherViewModel : ObservableObject {
     @Inject var openWeatherApi: OpenWeatherApi
     @Published var locationAndWeather: (Location, Weather)
+    var isCurrentLocation: Bool
     
-    init(locationName: String){
+    init(locationName: String, isCurrentLocation: Bool){
+        self.isCurrentLocation = isCurrentLocation
         self.locationAndWeather = (Location(name: locationName), Weather())
     }
     

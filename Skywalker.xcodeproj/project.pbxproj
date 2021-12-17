@@ -14,6 +14,7 @@
 		0A101E72273197A000A25C9B /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A101E71273197A000A25C9B /* Inject.swift */; };
 		0A101E752731A0CB00A25C9B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0A101E742731A0CB00A25C9B /* Swinject */; };
 		0A101E772731A6B900A25C9B /* ServiceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A101E762731A6B900A25C9B /* ServiceRegistry.swift */; };
+		0A1A40FA276CECF100CEAA56 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A40F9276CECF100CEAA56 /* LocationProvider.swift */; };
 		0A2E292B2728580C00D3EC34 /* SkywalkerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2E292A2728580C00D3EC34 /* SkywalkerApp.swift */; };
 		0A2E292F2728580D00D3EC34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A2E292E2728580D00D3EC34 /* Assets.xcassets */; };
 		0A2E29322728580D00D3EC34 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A2E29312728580D00D3EC34 /* Preview Assets.xcassets */; };
@@ -22,6 +23,7 @@
 		0A2E296D2728972100D3EC34 /* TripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2E296C2728972100D3EC34 /* TripViewModel.swift */; };
 		0A2E29702728973A00D3EC34 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2E296F2728973A00D3EC34 /* Trip.swift */; };
 		0A2E2974272897CE00D3EC34 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2E2973272897CE00D3EC34 /* Weather.swift */; };
+		0A63ECF2276CA5A600A8970A /* SaveLocationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63ECF1276CA5A600A8970A /* SaveLocationError.swift */; };
 		0A64B3DF274C4F69003EF88B /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A64B3DE274C4F69003EF88B /* UserData.swift */; };
 		0A657931274EE1220027595F /* GeoLocationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A657930274EE1220027595F /* GeoLocationDTO.swift */; };
 		0A657933274EF3C50027595F /* WeatherCollectionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A657932274EF3C50027595F /* WeatherCollectionDTO.swift */; };
@@ -62,6 +64,7 @@
 		0A101E6E2731978600A25C9B /* OpenWeatherApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherApi.swift; sourceTree = "<group>"; };
 		0A101E71273197A000A25C9B /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
 		0A101E762731A6B900A25C9B /* ServiceRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegistry.swift; sourceTree = "<group>"; };
+		0A1A40F9276CECF100CEAA56 /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
 		0A2E29272728580C00D3EC34 /* Skywalker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skywalker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A2E292A2728580C00D3EC34 /* SkywalkerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkywalkerApp.swift; sourceTree = "<group>"; };
 		0A2E292E2728580D00D3EC34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,6 +74,8 @@
 		0A2E296C2728972100D3EC34 /* TripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewModel.swift; sourceTree = "<group>"; };
 		0A2E296F2728973A00D3EC34 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		0A2E2973272897CE00D3EC34 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		0A63ECF1276CA5A600A8970A /* SaveLocationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocationError.swift; sourceTree = "<group>"; };
+		0A63ED04276CE07500A8970A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0A64B3DE274C4F69003EF88B /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		0A657930274EE1220027595F /* GeoLocationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocationDTO.swift; sourceTree = "<group>"; };
 		0A657932274EF3C50027595F /* WeatherCollectionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionDTO.swift; sourceTree = "<group>"; };
@@ -154,6 +159,8 @@
 		0A2E29292728580C00D3EC34 /* Skywalker */ = {
 			isa = PBXGroup;
 			children = (
+				0A63ED04276CE07500A8970A /* Info.plist */,
+				0A63ED06276CEBDA00A8970A /* ThirdParty */,
 				0A101E702731979000A25C9B /* ServiceRegistry */,
 				0A101E6D2731977800A25C9B /* Services */,
 				0A64B3E0274C5018003EF88B /* EnvironmentObjects */,
@@ -175,10 +182,19 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		0A63ED06276CEBDA00A8970A /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				0A1A40F9276CECF100CEAA56 /* LocationProvider.swift */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
 		0A64B3E0274C5018003EF88B /* EnvironmentObjects */ = {
 			isa = PBXGroup;
 			children = (
 				0A64B3DE274C4F69003EF88B /* UserData.swift */,
+				0A63ECF1276CA5A600A8970A /* SaveLocationError.swift */,
 			);
 			path = EnvironmentObjects;
 			sourceTree = "<group>";
@@ -436,6 +452,7 @@
 				0ADD1D7827397E8700649B44 /* WeatherStatus.swift in Sources */,
 				0A101E6F2731978600A25C9B /* OpenWeatherApi.swift in Sources */,
 				0A657937274EFECE0027595F /* ApiError.swift in Sources */,
+				0A63ECF2276CA5A600A8970A /* SaveLocationError.swift in Sources */,
 				0ADD1D69273965A500649B44 /* WeatherForecast.swift in Sources */,
 				0A657931274EE1220027595F /* GeoLocationDTO.swift in Sources */,
 				0AAD7ABA274E7FFA00494FBD /* PlusButton.swift in Sources */,
@@ -458,6 +475,7 @@
 				0A65793F274F11A30027595F /* WeatherDTO.swift in Sources */,
 				0A657935274EF6D70027595F /* AddLocationViewModel.swift in Sources */,
 				0A657939274F0CC00027595F /* DailyForecastDTO.swift in Sources */,
+				0A1A40FA276CECF100CEAA56 /* LocationProvider.swift in Sources */,
 				0ADD1D672739657300649B44 /* WeatherLine.swift in Sources */,
 				0A04C37E2739DE5D00D93925 /* AddTripView.swift in Sources */,
 				0A04C37C2739DC5800D93925 /* AddLocationView.swift in Sources */,
@@ -596,6 +614,11 @@
 				DEVELOPMENT_TEAM = F2NXL88V7B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Skywalker/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Uses location to check weather at your location.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Uses location to check weather at your location.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Uses location to check weather at your location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -626,6 +649,11 @@
 				DEVELOPMENT_TEAM = F2NXL88V7B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Skywalker/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Uses location to check weather at your location.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Uses location to check weather at your location.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Uses location to check weather at your location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

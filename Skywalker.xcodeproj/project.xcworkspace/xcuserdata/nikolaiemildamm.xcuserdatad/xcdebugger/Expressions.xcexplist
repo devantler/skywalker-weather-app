@@ -10,5 +10,21 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "closure #1 in LocationAndTripSliderView.body.getter:LocationAndTripSliderView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewModel">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LocationAndTripSliderView.body.getter:LocationAndTripSliderView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewModel">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>
