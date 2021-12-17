@@ -15,6 +15,8 @@
 		0A101E752731A0CB00A25C9B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0A101E742731A0CB00A25C9B /* Swinject */; };
 		0A101E772731A6B900A25C9B /* ServiceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A101E762731A6B900A25C9B /* ServiceRegistry.swift */; };
 		0A1A40FA276CECF100CEAA56 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A40F9276CECF100CEAA56 /* LocationProvider.swift */; };
+		0A1A40FC276CFAD700CEAA56 /* WeatherForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A40FB276CFAD700CEAA56 /* WeatherForecastViewModel.swift */; };
+		0A1A40FE276CFF4400CEAA56 /* WeatherCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A40FD276CFF4400CEAA56 /* WeatherCollection.swift */; };
 		0A2E292B2728580C00D3EC34 /* SkywalkerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2E292A2728580C00D3EC34 /* SkywalkerApp.swift */; };
 		0A2E292F2728580D00D3EC34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A2E292E2728580D00D3EC34 /* Assets.xcassets */; };
 		0A2E29322728580D00D3EC34 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A2E29312728580D00D3EC34 /* Preview Assets.xcassets */; };
@@ -65,6 +67,8 @@
 		0A101E71273197A000A25C9B /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
 		0A101E762731A6B900A25C9B /* ServiceRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRegistry.swift; sourceTree = "<group>"; };
 		0A1A40F9276CECF100CEAA56 /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
+		0A1A40FB276CFAD700CEAA56 /* WeatherForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastViewModel.swift; sourceTree = "<group>"; };
+		0A1A40FD276CFF4400CEAA56 /* WeatherCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollection.swift; sourceTree = "<group>"; };
 		0A2E29272728580C00D3EC34 /* Skywalker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skywalker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A2E292A2728580C00D3EC34 /* SkywalkerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkywalkerApp.swift; sourceTree = "<group>"; };
 		0A2E292E2728580D00D3EC34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -297,6 +301,7 @@
 				0AAD7ABB274E821300494FBD /* Location.swift */,
 				0A2E2973272897CE00D3EC34 /* Weather.swift */,
 				0ADD1D7727397E8700649B44 /* WeatherStatus.swift */,
+				0A1A40FD276CFF4400CEAA56 /* WeatherCollection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				0ADD1D68273965A500649B44 /* WeatherForecast.swift */,
+				0A1A40FB276CFAD700CEAA56 /* WeatherForecastViewModel.swift */,
 			);
 			path = WeatherForecast;
 			sourceTree = "<group>";
@@ -441,6 +447,7 @@
 				0A101E772731A6B900A25C9B /* ServiceRegistry.swift in Sources */,
 				0AAD7ABC274E821300494FBD /* Location.swift in Sources */,
 				0A101E72273197A000A25C9B /* Inject.swift in Sources */,
+				0A1A40FE276CFF4400CEAA56 /* WeatherCollection.swift in Sources */,
 				0A65793B274F0D420027595F /* CurrentWeatherDTO.swift in Sources */,
 				0AAD7AC6274E8A4800494FBD /* WeatherIconViewModel.swift in Sources */,
 				0AAD7ABF274E889400494FBD /* WeatherLineStyling.swift in Sources */,
@@ -448,6 +455,7 @@
 				0AAD7AAE274D956400494FBD /* Card.swift in Sources */,
 				0A657941274F12380027595F /* TemperatureDTO.swift in Sources */,
 				0A657943274F125C0027595F /* FeelsLikeDTO.swift in Sources */,
+				0A1A40FC276CFAD700CEAA56 /* WeatherForecastViewModel.swift in Sources */,
 				0ADD1D7627397E2E00649B44 /* WeatherIcon.swift in Sources */,
 				0ADD1D7827397E8700649B44 /* WeatherStatus.swift in Sources */,
 				0A101E6F2731978600A25C9B /* OpenWeatherApi.swift in Sources */,

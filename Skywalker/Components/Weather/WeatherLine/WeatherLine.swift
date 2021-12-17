@@ -19,13 +19,13 @@ struct WeatherLine: View {
             VStack{
                 WeatherIcon(weatherStatus: viewModel.weather.status, styling: WeatherIconStyling(size: viewModel.styling.iconSize))
                 Text(viewModel.location.name).font(Font.system(viewModel.styling.fontStyle))
-                Text(viewModel.weather.temperature?.description ?? "").font(Font.system(viewModel.styling.fontStyle))
+                Text((viewModel.weather.temperature?.description ?? "") + "°C").font(Font.system(viewModel.styling.fontStyle))
             }
         } else {
             HStack{
                 WeatherIcon(weatherStatus: viewModel.weather.status, styling: WeatherIconStyling(size: viewModel.styling.iconSize))
                 Text(viewModel.location.name).font(Font.system(.title3))
-                Text(viewModel.weather.temperature?.description ?? "").font(Font.system(viewModel.styling.fontStyle))
+                Text((viewModel.weather.temperature?.description ?? "") + "°C").font(Font.system(viewModel.styling.fontStyle))
             }
         }
     }
@@ -33,6 +33,6 @@ struct WeatherLine: View {
 
 struct WeatherLine_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherLine(location: Location(name: "Odense"), weather: .init(date: Date(), temperature: 21.45, status: WeatherStatus.Sunny))
+        WeatherLine(location: Location(name: "Odense"), weather: .init(date: Date(), temperature: 21.45, status: WeatherStatus.Clear))
     }
 }

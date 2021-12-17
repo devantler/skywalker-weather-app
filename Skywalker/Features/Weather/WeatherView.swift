@@ -30,13 +30,13 @@ struct WeatherView: View {
                 }
                 VStack{
                     Card{
-                        WeatherLine(location: viewModel.locationAndWeather.0, weather: viewModel.locationAndWeather.1, styling: WeatherLineStyling(fontStyle: .title3, iconSize: 50))
+                        WeatherLine(location: viewModel.locationAndWeather.0, weather: viewModel.locationAndWeather.1.currentWeather, styling: WeatherLineStyling(fontStyle: .title3, iconSize: 50))
                     }.padding()
                     Card{
-                        WeatherForecast()
+                        WeatherForecast(location: viewModel.locationAndWeather.0, weathers: viewModel.locationAndWeather.1.forecast)
                     }.padding()
                 }
-            }
+            }.onAppear(perform: viewModel.updateWeather)
             Spacer()
         }
     }

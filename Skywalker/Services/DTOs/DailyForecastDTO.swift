@@ -8,13 +8,13 @@
 import Foundation
 
 struct DailyForecastDTO : Codable {
-    let dt: Int
-      let temp: TemperatureDTO
-      let feelsLike: FeelsLikeDTO
-      let pressure, humidity: Int
-      let windSpeed: Double
-      let windDeg: Int
-      let weather: [WeatherDTO]
-      let clouds: Int
-      let rain: Double
+    let dt: Double
+    let temp: TemperatureDTO
+    //let feels_like: FeelsLikeDTO
+    //let pressure, humidity: Int
+    //let windSpeed: Double
+    //let windDeg: Int
+    let weather: [WeatherDTO]
+    //let clouds: Int
+    //let rain: Double
 }

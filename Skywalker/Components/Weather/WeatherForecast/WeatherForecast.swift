@@ -1,46 +1,30 @@
-//
-//  WeatherForecastView.swift
-//  Skywalker
-//
-//  Created by Nikolai Emil Damm on 08/11/2021.
-//
-
 import SwiftUI
 
 struct WeatherForecast: View {
+    @ObservedObject var viewModel: WeatherForecastViewModel
+    let dateFormatter = DateFormatter()
+    
+    init(location: Location, weathers: [Weather]) {
+        self.viewModel = .init(location: location, weathers: weathers)
+        dateFormatter.dateFormat = "EEEE"
+    }
+    
     var body: some View {
         VStack{
-            HStack{
-                WeatherIcon(weatherStatus: WeatherStatus.Cloudy)
-                Text("Odense")
-                Text("8.3")
-                Spacer()
-            }.border(Color.gray)
-            HStack{
-                WeatherIcon(weatherStatus: WeatherStatus.Sunny)
-                Text("Kolding")
-                Text("10")
-                Spacer()
-            }.border(Color.gray)
-            HStack{
-                WeatherIcon(weatherStatus: WeatherStatus.Cloudy)
-                Text("Århus")
-                Text("7.1")
-                Spacer()
-            }.border(Color.gray)
-            HStack{
-                WeatherIcon(weatherStatus: WeatherStatus.Sunny)
-                Text("Sønderbog")
-                Text("10.8")
-                Spacer()
-            }.border(Color.gray)
+            ForEach(0 ..< viewModel.weathers.count, id: \.self) { i in
+                HStack{
+                    Text(dateFormatter.string(from: viewModel.weathers[i].date))
+                    WeatherIcon(weatherStatus: viewModel.weathers[i].status)
+                    Text((viewModel.weathers[i].temperature?.description ?? "") + "°C")
+                    Spacer()
+                }.border(Color.gray)
+            }
         }
-        
     }
 }
 
 struct WeatherForecast_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherForecast()
+        WeatherForecast(location: Location(name: "Kolding"), weathers: [Weather(date: Date(), temperature: -2, status: WeatherStatus.Snow)])
     }
 }

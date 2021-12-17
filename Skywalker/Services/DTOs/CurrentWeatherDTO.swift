@@ -11,7 +11,7 @@ struct CurrentWeatherDTO : Codable{
     let temp, feels_like: Double
     //let pressure, humidity: Int
     //let windSpeed, windDeg: Int
-    //let weather: [WeatherDTO]
+    let weather: [WeatherDTO]
     //let rain: RainDTO
 }
 

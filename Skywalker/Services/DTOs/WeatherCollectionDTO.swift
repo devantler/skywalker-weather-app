@@ -9,5 +9,5 @@ import Foundation
 
 struct WeatherCollectionDTO: Codable {
     let current: CurrentWeatherDTO
-    //let daily: [DailyForecastDTO]
+    let daily: [DailyForecastDTO]
 }

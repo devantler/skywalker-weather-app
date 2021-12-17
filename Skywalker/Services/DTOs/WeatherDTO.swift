@@ -7,5 +7,5 @@
 
 import Foundation
 struct WeatherDTO :Codable{
-    let main, weatherDescription, icon: String
+    let main: String
 }
