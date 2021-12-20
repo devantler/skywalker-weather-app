@@ -10,14 +10,16 @@ struct WeatherForecast: View {
     }
     
     var body: some View {
-        VStack{
-            ForEach(0 ..< viewModel.weathers.count, id: \.self) { i in
-                HStack{
-                    Text(dateFormatter.string(from: viewModel.weathers[i].date))
-                    WeatherIcon(weatherStatus: viewModel.weathers[i].status)
-                    Text((viewModel.weathers[i].temperature?.description ?? "") + "°C")
-                    Spacer()
-                }.border(Color.gray)
+        ScrollView{
+            VStack{
+                ForEach(0 ..< viewModel.weathers.count, id: \.self) { i in
+                    HStack{
+                        Text(dateFormatter.string(from: viewModel.weathers[i].date))
+                        WeatherIcon(weatherStatus: viewModel.weathers[i].status)
+                        Text((viewModel.weathers[i].temperature?.description ?? "") + "°C")
+                        Spacer()
+                    }.frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, minHeight: 40, idealHeight: 40, maxHeight: 40, alignment: .leading).border(Color.gray)
+                }
             }
         }
     }
@@ -25,6 +27,6 @@ struct WeatherForecast: View {
 
 struct WeatherForecast_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherForecast(location: Location(name: "Kolding"), weathers: [Weather(date: Date(), temperature: -2, status: WeatherStatus.Snow)])
+        WeatherForecast(location: Location(name: "Kolding"), weathers: [Weather(date: Date(), temperature: -2, status: WeatherStatus.Clouds)])
     }
 }
