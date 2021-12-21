@@ -14,7 +14,7 @@ struct WeatherForecast: View {
             VStack{
                 ForEach(0 ..< viewModel.weathers.count, id: \.self) { i in
                     HStack{
-                        Text(dateFormatter.string(from: viewModel.weathers[i].date))
+                        Text(Calendar.current.isDate(Date.now, inSameDayAs: viewModel.weathers[i].date	) ? "Today" : dateFormatter.string(from: viewModel.weathers[i].date))
                         WeatherIcon(weatherStatus: viewModel.weathers[i].status)
                         Text((viewModel.weathers[i].temperature?.description ?? "") + "°C")
                         Spacer()
