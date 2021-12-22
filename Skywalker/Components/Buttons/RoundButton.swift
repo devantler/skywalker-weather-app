@@ -22,7 +22,7 @@ struct RoundButton: View {
                     .font(Font.system(.largeTitle))
                     .frame(width: size, height: size)
                     .foregroundColor(Color.white)
-                    .background(isDisabled ? Color.green.opacity(0.6)  : Color.green )
+                    .background(isDisabled ? Color.red.opacity(0.5)  : Color.green )
                     .clipShape(Circle())
                 Text(buttonText)
             }

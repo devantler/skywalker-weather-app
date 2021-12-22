@@ -10,17 +10,17 @@ struct WeatherIcon: View {
     var body: some View {
         switch viewModel.weatherStatus {
         case .Thunderstorm:
-            Image(systemName: "cloud.bolt.fill").foregroundColor(.gray).font(.system(size: viewModel.styling.size))
+            Image(systemName: "cloud.bolt.fill").foregroundColor(.white).font(.system(size: viewModel.styling.size))
         case .Drizzle:
-            Image(systemName: "cloud.drizzle.fill").foregroundColor(.gray).font(.system(size: viewModel.styling.size))
+            Image(systemName: "cloud.drizzle.fill").foregroundColor(Color(UIColor.lightGray)).font(.system(size: viewModel.styling.size))
         case .Rain:
-            Image(systemName: "cloud.rain.fill").foregroundColor(.gray).font(.system(size: viewModel.styling.size))
+            Image(systemName: "cloud.rain.fill").foregroundColor(Color(UIColor.lightGray)).font(.system(size: viewModel.styling.size))
         case .Snow:
-            Image(systemName: "cloud.snow.fill").foregroundColor(.gray).font(.system(size: viewModel.styling.size))
+            Image(systemName: "cloud.snow.fill").foregroundColor(.white).font(.system(size: viewModel.styling.size))
         case .Mist:
-            Image(systemName: "cloud.fog.fill").foregroundColor(.gray).font(.system(size: viewModel.styling.size))
+            Image(systemName: "cloud.fog.fill").foregroundColor(Color(UIColor.lightGray)).font(.system(size: viewModel.styling.size))
         case .Smoke:
-            Image(systemName: "cloud.smoke.fill").foregroundColor(.gray).font(.system(size: viewModel.styling.size))
+            Image(systemName: "cloud.smoke.fill").foregroundColor(Color(UIColor.lightGray)).font(.system(size: viewModel.styling.size))
         case .Haze:
             Image(systemName: "sun.haze.fill").foregroundColor(.yellow).font(.system(size: viewModel.styling.size))
         case .Sand:
@@ -28,17 +28,17 @@ struct WeatherIcon: View {
         case .Dust:
             Image(systemName: "sun.dust.fill").foregroundColor(.yellow).font(.system(size: viewModel.styling.size))
         case .Fog:
-            Image(systemName: "cloud.fog.fill").foregroundColor(.gray).font(.system(size: viewModel.styling.size))
+            Image(systemName: "cloud.fog.fill").foregroundColor(Color(UIColor.lightGray)).font(.system(size: viewModel.styling.size))
         case .Ash:
-            Image(systemName: "cloud.fog.fill").foregroundColor(.gray).font(.system(size: viewModel.styling.size))
+            Image(systemName: "cloud.fog.fill").foregroundColor(Color(UIColor.lightGray)).font(.system(size: viewModel.styling.size))
         case .Squall:
-            Image(systemName: "cloud.fog.fill").foregroundColor(.gray).font(.system(size: viewModel.styling.size))
+            Image(systemName: "cloud.fog.fill").foregroundColor(Color(UIColor.lightGray)).font(.system(size: viewModel.styling.size))
         case .Tornado:
             Image(systemName: "tornado").foregroundColor(.gray).font(.system(size: viewModel.styling.size))
         case .Clear:
             Image(systemName: "sun.max.fill").foregroundColor(.yellow).font(.system(size: viewModel.styling.size))
         case .Clouds:
-            Image(systemName: "cloud.fill").foregroundColor(.gray).font(.system(size: viewModel.styling.size))
+            Image(systemName: "cloud.fill").foregroundColor(.white).font(.system(size: viewModel.styling.size))
         case .None:
             EmptyView()
         }
