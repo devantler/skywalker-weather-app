@@ -18,11 +18,11 @@ struct WeatherForecast: View {
                             let isToday = Calendar.current.isDateInToday(viewModel.weathers[i].date)
                             let isTomorrow = Calendar.current.isDateInTomorrow(viewModel.weathers[i].date)
                             if(isToday){
-                                Text("Today")
+                                Text("Today").font(Font.body.bold())
                             } else if(isTomorrow) {
-                                Text("Tomorrow")
+                                Text("Tomorrow").font(Font.body.bold())
                             } else {
-                                Text(dateFormatter.string(from: viewModel.weathers[i].date))
+                                Text(dateFormatter.string(from: viewModel.weathers[i].date)).font(Font.body.bold())
                             }
                             Spacer()
                             WeatherIcon(weatherStatus: viewModel.weathers[i].status)

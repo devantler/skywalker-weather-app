@@ -10,6 +10,6 @@ import SwiftUI
 
 struct WeatherLineStyling {
     var vertical: Bool = true
-    var fontStyle: Font.TextStyle = .body
+    var fontStyle: Font = .body
     var iconSize: CGFloat = 30
 }

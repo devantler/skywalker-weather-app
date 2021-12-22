@@ -18,14 +18,14 @@ struct WeatherLine: View {
         if viewModel.styling.vertical {
             VStack{
                 WeatherIcon(weatherStatus: viewModel.weather.status, styling: WeatherIconStyling(size: viewModel.styling.iconSize))
-                Text(viewModel.location.name).font(Font.system(viewModel.styling.fontStyle))
-                Text((viewModel.weather.temperature?.description ?? "") + "°C").font(Font.system(viewModel.styling.fontStyle))
+                Text(viewModel.location.name).font(viewModel.styling.fontStyle)
+                Text((viewModel.weather.temperature?.description ?? "") + "°C").font(viewModel.styling.fontStyle)
             }
         } else {
             HStack{
                 WeatherIcon(weatherStatus: viewModel.weather.status, styling: WeatherIconStyling(size: viewModel.styling.iconSize))
-                Text(viewModel.location.name).font(Font.system(.title3))
-                Text((viewModel.weather.temperature?.description ?? "") + "°C").font(Font.system(viewModel.styling.fontStyle))
+                Text(viewModel.location.name).font(viewModel.styling.fontStyle)
+                Text((viewModel.weather.temperature?.description ?? "") + "°C").font(viewModel.styling.fontStyle)
             }
         }
     }
