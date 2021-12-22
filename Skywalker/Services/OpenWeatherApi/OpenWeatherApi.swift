@@ -8,17 +8,20 @@ class OpenWeatherApi: ObservableObject{
         URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
             if let error = error {
                 print(error.localizedDescription)
+                completion(0, 0)
                 return
             }
             if let data = data, let geoLocations = try? JSONDecoder().decode([GeoLocationDTO].self, from: data) {
                 guard let geolocation = geoLocations.first else {
                     print("Geolocation is nil")
+                    completion(0, 0)
                     return
                 }
                 DispatchQueue.main.async {
                     completion(geolocation.lat, geolocation.lon)
                 }
             } else {
+                completion(0, 0)
                print("Something went wrong. Try again.")
            }
         }).resume()

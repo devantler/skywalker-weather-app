@@ -5,26 +5,27 @@ class UserData : ObservableObject {
     @Published var currentLocation: String = ""
     @Published var locations: [String] = []
     @Published var trips: [Trip] = []
+    @Published var saveLocationError = SaveLocationError.unset;
     
     init(){
         loadLocations()
         self.trips = loadTrips()
     }
     
-    func saveLocation(locationName: String) -> SaveLocationError {
-        var error: SaveLocationError = SaveLocationError.unset;
+    func saveLocation(locationName: String) {
+        saveLocationError = .unset
         openWeatherApi.fetchGeoLocation(city: locationName, completion:  { (lat, lon) in
             guard self.locations.count < 5 else {
-                error = SaveLocationError.maxLocationsReached
+                self.saveLocationError = SaveLocationError.maxLocationsReached
+                return
+            }
+            guard lat != 0 && lon != 0 else {
+                self.saveLocationError = SaveLocationError.invalidLocationName
                 return
             }
             self.locations.append(locationName)
             self.defaults.set(self.locations, forKey: "locations")
         })
-        if(!locations.contains(locationName)){
-            error = SaveLocationError.invalidLocationName
-        }
-        return error
     }
     
     func deleteLocation(locationName: String) {
