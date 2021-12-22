@@ -28,22 +28,31 @@ struct WeatherView: View {
                         }
                     }.zIndex(1)
                 }
-                VStack{
+                if(viewModel.locationAndWeather.0.name == ""){
                     Card{
-                        WeatherLine(location: viewModel.locationAndWeather.0, weather: viewModel.locationAndWeather.1.currentWeather, styling: WeatherLineStyling(fontStyle: .title3, iconSize: 50))
-                    }.padding()
-                    Card{
-                        WeatherForecast(location: viewModel.locationAndWeather.0, weathers: viewModel.locationAndWeather.1.forecast)
-                    }.padding()
+                        Text("Loading weather data...")
+                        ProgressView()
+                    }
+                } else{
+                    VStack{
+                        Card{
+                            WeatherLine(location: viewModel.locationAndWeather.0, weather: viewModel.locationAndWeather.1.currentWeather, styling: WeatherLineStyling(fontStyle: .title3, iconSize: 50))
+                        }.padding()
+                        Card{
+                            WeatherForecast(location: viewModel.locationAndWeather.0, weathers: viewModel.locationAndWeather.1.forecast)
+                        }.padding()
+                    }.onAppear{
+                        viewModel.updateWeather()
+                    }
                 }
-            }.onAppear(perform: viewModel.updateWeather)
-            Spacer()
+                Spacer()
+            }
         }
     }
 }
-
 struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
         WeatherView(deleteAction: {print("clicked delete")}, locationName: "Odense")
     }
 }
+

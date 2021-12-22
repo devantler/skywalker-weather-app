@@ -3,11 +3,9 @@ import SwiftUI
 struct CurrentWeatherTabView: View {
     @EnvironmentObject var userData: UserData
     var tag: Int
-    var locationName: String
+    var locationName: String?
     var body: some View {
-        WeatherView(deleteAction: {
-            userData.deleteLocation(locationName: locationName)
-        },locationName: locationName, isCurrentLocation: true)
+        WeatherView(deleteAction: {},locationName: locationName ?? "", isCurrentLocation: true)
             .tabItem {
                 Label("", systemImage: "location.circle")
             }.tag(tag)

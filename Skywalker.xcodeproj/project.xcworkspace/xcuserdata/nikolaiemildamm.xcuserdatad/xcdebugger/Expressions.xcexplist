@@ -3,11 +3,27 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "OpenWeatherApi.fetchGeoLocation(city:):OpenWeatherApi.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentTask.response">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in closure #1 in closure #1 in WeatherForecast.body.getter:WeatherForecast.swift">
          <PersistentStrings>
             <PersistentString
                value = "viewModel.weathers.count">
             </PersistentString>
+            <PersistentString
+               value = "viewModel">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LocationAndTripSliderView.body.getter:LocationAndTripSliderView.swift">
+         <PersistentStrings>
             <PersistentString
                value = "viewModel">
             </PersistentString>
@@ -22,14 +38,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "OpenWeatherApi.fetchGeoLocation(city:):OpenWeatherApi.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "currentTask.response">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "closure #1 in LocationAndTripSliderView.body.getter:LocationAndTripSliderView.swift">
          <PersistentStrings>
             <PersistentString
@@ -38,10 +46,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "LocationAndTripSliderView.body.getter:LocationAndTripSliderView.swift">
+         contextName = "WeatherViewModel.updateWeather():WeatherViewModel.swift">
          <PersistentStrings>
             <PersistentString
-               value = "viewModel">
+               value = "locationAndWeather">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WeatherView.update():WeatherView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewModel.locationAndWeather">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

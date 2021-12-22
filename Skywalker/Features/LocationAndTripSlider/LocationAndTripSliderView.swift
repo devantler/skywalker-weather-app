@@ -8,9 +8,8 @@ struct LocationAndTripSliderView: View {
     
     var body: some View {
         TabView(selection: $viewModel.tabs.selected) {
-            
-            CurrentWeatherTabView(tag: 0, locationName: locationManager.city ?? "")
-            
+            CurrentWeatherTabView(tag: 0, locationName: locationManager.city)
+             
             ForEach(Array(userData.locations.enumerated()), id: \.offset) { index, locationName in
                 WeatherTabView(tag: index + 1, locationName: locationName)
             }
@@ -32,7 +31,7 @@ struct LocationAndTripSliderView: View {
         .environmentObject(userData)
     }
     
-    func updateCurrentLocation(){
+    func updateCurrentLocation() {
         do {
             try locationManager.start()
         }
