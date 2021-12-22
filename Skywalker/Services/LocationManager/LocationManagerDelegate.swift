@@ -1,4 +1,5 @@
 import CoreLocation
+@available(iOSApplicationExtension, unavailable)
 extension LocationManager: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         self.authorizationStatus = status

@@ -63,7 +63,7 @@ public class LocationManager: NSObject, ObservableObject {
         self.locationManager.stopUpdatingLocation()
     }
 }
-
+@available(iOSApplicationExtension, unavailable)
 public func presentLocationSettingsAlert(alertText : String? = nil) -> Void {
 #if os(iOS)
     let alertController = UIAlertController (title: "Enable Location Access", message: alertText ?? "The location access for this app is set to 'never'. Enable location access in the application settings. Go to Settings now?", preferredStyle: .alert)
